@@ -45,6 +45,23 @@
                           <?php endif; ?>
 
                           <!-- /.card-header -->
+                          <?php foreach ($j_det_srt_keluar as $row) : ?>
+                              <?php if ($row->total == 0) { ?>
+                              <?php
+                                } else { ?>
+                                  <div class="card-body">
+                                      <div class="alert alert-danger alert-dismissible">
+                                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                          <h5><i class="icon fas fa-ban"></i> Mohon Diperhatikan!</h5>
+                                          Sistem Mendeteksi belum memiliki <b>Arsip File Upload sejumlah <?php echo $row->total; ?> surat</b>
+                                          <br>Cek sekali lagi Arsip Surat Keluar Anda dan Lakukan Uploading File Surat ke Apel.
+                                      </div>
+                                  </div>
+                              <?php }; ?>
+                          <?php endforeach; ?>
+                          <!-- /.card-body -->
+
+                          <!-- /.card-header -->
                           <div class="card-body">
                               <table id="example1" class="table table-bordered table-striped">
                                   <thead>
