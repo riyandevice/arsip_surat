@@ -38,6 +38,29 @@ class Model_managemensuratkeluar extends CI_model
         return $kodeKeluartampil;
     }
 
+    function TampilPembuat()
+    {
+        $this->db->order_by('id_user', 'ASC');
+        $this->db->limit('1');
+        return $this->db->from('tbl_surat_keluar')->join('tbl_user', 'tbl_user.id=tbl_surat_keluar.id_user')->get()->result();
+    }
+
+    public function hitung_j_deteksi_fisik()
+    {
+        $some_value = '';
+        $limit = 1;
+
+        $this->db->select('COUNT(*) as total');
+        $this->db->from('tbl_surat_keluar');
+        $this->db->where('file', $some_value);
+        $this->db->group_by('file');
+        $this->db->limit($limit);
+        // Sesuaikan kondisi join dengan kebutuhan Anda
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+
     public function tambah_suratkeluar($table, $data)
     {
         $this->db->insert($table, $data);

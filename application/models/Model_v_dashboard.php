@@ -6,6 +6,8 @@ class Model_v_dashboard extends CI_model
     {
         parent::__construct();
         $this->load->database();
+        $this->load->library('uuid');
+        $this->load->library('user_agent');
     }
 
     public function tampil_data()
@@ -15,6 +17,44 @@ class Model_v_dashboard extends CI_model
         $this->db->from('tbl_surat_masuk');
         $this->db->where($search);
         return $this->db->get();
+    }
+
+    public function tampil_surat_masuk()
+    {
+        $this->db->order_by('no_agenda DESC', 'nama ASC');
+        $this->db->limit(6);
+        return $this->db->get_where('tbl_surat_masuk');
+    }
+
+    public function tampil_surat_keluar()
+    {
+        $this->db->order_by('no_agenda DESC', 'nama ASC');
+        $this->db->limit(6);
+        return $this->db->get_where('tbl_surat_keluar');
+    }
+
+    public function hitung_j_bc_surat_masuk($id = null)
+    {
+        $this->db->select('COUNT(*) as total');
+        $this->db->from('tbl_surat_masuk');
+        $this->db->join('tbl_viewer_surat', 'tbl_surat_masuk.id_surat = tbl_viewer_surat.id_surat', 'inner');
+        $this->db->where('tbl_surat_masuk.id_surat', $id); // WHERE clause
+        $this->db->group_by('tbl_viewer_surat.id_surat');
+        // Sesuaikan kondisi join dengan kebutuhan Anda
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function hitung_j_bc_surat_keluar($id = null)
+    {
+        $this->db->select('COUNT(*) as total');
+        $this->db->from('tbl_surat_keluar');
+        $this->db->join('tbl_viewer_surat', 'tbl_surat_keluar.id_surat = tbl_viewer_surat.id_surat', 'inner');
+        $this->db->where('tbl_surat_keluar.id_surat', $id); // WHERE clause
+        $this->db->group_by('tbl_viewer_surat.id_surat');
+        // Sesuaikan kondisi join dengan kebutuhan Anda
+        $query = $this->db->get();
+        return $query->result();
     }
 
     public function graph()
@@ -91,6 +131,20 @@ class Model_v_dashboard extends CI_model
 
     public function detail_surat_masuk($id = null)
     {
+        ini_set('date.timezone', 'Asia/Jakarta');
+        $jam_input = date("H:i:s");
+        $tgl_input = date("Y-m-d");
+        $ip = $this->input->ip_address();
+
+        $data = [
+            "id"                    => $this->uuid->v4(),
+            "id_surat"              => $id,
+            "ip_akses"              => $ip,
+            "tanggal"               => $tgl_input,
+            "waktu"                 => $jam_input
+        ];
+
+        $query = $this->db->insert('tbl_viewer_surat', $data);
         $query = $this->db->get_where('tbl_surat_masuk', array('id_surat' => $id))->row();
         return $query;
     }
@@ -111,6 +165,20 @@ class Model_v_dashboard extends CI_model
 
     public function detail_surat_keluar($id = null)
     {
+        ini_set('date.timezone', 'Asia/Jakarta');
+        $jam_input = date("H:i:s");
+        $tgl_input = date("Y-m-d");
+        $ip = $this->input->ip_address();
+
+        $data = [
+            "id"                    => $this->uuid->v4(),
+            "id_surat"              => $id,
+            "ip_akses"              => $ip,
+            "tanggal"               => $tgl_input,
+            "waktu"                 => $jam_input
+        ];
+
+        $query = $this->db->insert('tbl_viewer_surat', $data);
         $query = $this->db->get_where('tbl_surat_keluar', array('id_surat' => $id))->row();
         return $query;
     }
