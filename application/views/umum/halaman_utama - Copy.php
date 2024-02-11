@@ -89,143 +89,39 @@
                     <div class="col-lg-6">
                         <div class="card card-primary card-outline">
                             <div class="card-header">
-                                <h5 class="card-title m-0">Surat Masuk Terbaru</h5>
-                                <a href="<?php echo base_url(); ?>v_dashboard/daftar_surat_masuk" target="_blank">
-                                    <div class=" btn btn-success btn-sm float-right"><i class="fas fa-chevron-circle-right"></i> Detail</div>
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-body table-responsive p-0" style="height: 300px;">
-                                    <table class="table table-head-fixed text-nowrap">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Asal Surat</th>
-                                                <th>Isi Surat</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            $no = 1;
-                                            foreach ($surat_masuk_ok as $dtl) : ?>
-                                                <tr>
-                                                    <td><?php echo $no++; ?></td>
-                                                    <td>
-                                                        <a href="<?php echo base_url(); ?>v_dashboard/surat_masuk/<?php echo $dtl->id_surat; ?>" target="_blank">
-                                                            <?php echo $dtl->asal_surat; ?>
-                                                        </a>
-                                                    </td>
-                                                    <td><?php echo $dtl->isi; ?></td>
-                                                </tr>
-                                            <?php endforeach; ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- /.card-body -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.col-md-6 -->
-                    <div class=" col-lg-6">
-                        <div class="card card-primary card-outline">
-                            <div class="card-header">
-                                <h5 class="card-title m-0">Surat Keluar Terbaru</h5>
-                                <a href="<?php echo base_url(); ?>v_dashboard/daftar_surat_keluar" target="_blank">
-                                    <div class=" btn btn-danger btn-sm float-right"><i class="fas fa-chevron-circle-right"></i> Detail</div>
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-body table-responsive p-0" style="height: 300px;">
-                                    <table class="table table-head-fixed text-nowrap">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Tujuan Surat</th>
-                                                <th>Isi Surat</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            $no = 1;
-                                            foreach ($surat_keluar_ok as $dtl) : ?>
-                                                <tr>
-                                                    <td><?php echo $no++; ?></td>
-                                                    <td>
-                                                        <a href="<?php echo base_url(); ?>v_dashboard/surat_keluar/<?php echo $dtl->id_surat; ?>" target="_blank">
-                                                            <?php echo $dtl->tujuan; ?>
-                                                        </a>
-                                                    </td>
-                                                    <td><?php echo $dtl->isi; ?></td>
-                                                </tr>
-                                            <?php endforeach; ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- /.card-body -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.col-md-6 -->
-
-                    <!-- /.col-md-6 -->
-                    <div class=" col-lg-4">
-                        <div class="card card-primary card-outline">
-                            <div class="card-header">
-                                <h5 class="card-title m-0">Graph Disposisi Surat</h5>
+                                <h5 class="card-title m-0">Jumlah Disposisi</h5>
                             </div>
                             <div class="card-body">
                                 <div id="container" style="width: 100%;">
                                 </div>
-                                <!-- /.card-body -->
-                                <div class="card-footer">
-                                    <center>
-                                        <font color="blue"><b><i class="fas fa-list"></i> <?php echo $j_disposisi_1; ?></b></font><br>
-                                        <b>Total Disposisi</b>
-                                    </center>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col-md-6 -->
+                    <div class="col-lg-6">
+                        <div class="card card-primary card-outline">
+                            <div class="card-header">
+                                <h5 class="card-title m-0">Jumlah Surat Masuk</h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="container2" style="width: 100%;">
                                 </div>
-                                <!-- /.card-footer-->
+
                             </div>
                         </div>
                     </div>
                     <!-- /.col-md-6 -->
 
                     <!-- /.col-md-6 -->
-                    <div class=" col-lg-4">
+                    <div class="col-lg-12">
                         <div class="card card-primary card-outline">
                             <div class="card-header">
-                                <h5 class="card-title m-0">Graph Surat Masuk</h5>
+                                <h5 class="card-title m-0">Jumlah Surat Keluar</h5>
                             </div>
                             <div class="card-body">
-                                <div id="container2" style="width: 100%;"></div>
-                                <!-- /.card-body -->
-                                <div class="card-footer">
-                                    <center>
-                                        <font color="green"><b><i class="fas fa-list"></i> <?php echo $j_surat_masuk; ?></b></font><br>
-                                        <b>Total Surat Masuk</b>
-                                    </center>
+                                <div id="container3" style="width: 100%;">
                                 </div>
-                                <!-- /.card-footer-->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.col-md-6 -->
 
-                    <!-- /.col-md-6 -->
-                    <div class=" col-lg-4">
-                        <div class="card card-primary card-outline">
-                            <div class="card-header">
-                                <h5 class="card-title m-0">Graph Surat Keluar</h5>
-                            </div>
-                            <div class="card-body">
-                                <div id="container3" style="width: 100%;"></div>
-                                <!-- /.card-body -->
-                                <div class="card-footer">
-                                    <center>
-                                        <font color="red"><b><i class="fas fa-list"></i> <?php echo $j_surat_keluar; ?></b></font><br>
-                                        <b>Total Surat Keluar</b>
-                                    </center>
-                                </div>
-                                <!-- /.card-footer-->
                             </div>
                         </div>
                     </div>
@@ -254,7 +150,7 @@
                 type: 'pie'
             },
             title: {
-                text: 'Jumlah Disposisi'
+                text: 'Perbandingan Jumlah Disposisi'
             },
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.y}</b>'
@@ -298,7 +194,7 @@
                 type: 'pie'
             },
             title: {
-                text: 'Jumlah Surat Masuk'
+                text: 'Perbandingan Jumlah Surat Masuk'
             },
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.y}</b>'
@@ -342,7 +238,7 @@
                 type: 'pie'
             },
             title: {
-                text: 'Jumlah Surat Keluar'
+                text: 'Perbandingan Jumlah Surat Keluar'
             },
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.y}</b>'

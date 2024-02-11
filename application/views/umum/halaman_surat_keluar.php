@@ -72,6 +72,13 @@
                                                 <td>:</td>
                                                 <td><?php echo $detail->isi ?></td>
                                             </tr>
+                                            <tr>
+                                                <td>Dibaca</td>
+                                                <td>:</td>
+                                                <?php foreach ($j_bc_srt_keluar as $row) : ?>
+                                                    <td><i class="fas fa-eye"></i> <?php echo $row->total; ?> x</td>
+                                                <?php endforeach; ?>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
