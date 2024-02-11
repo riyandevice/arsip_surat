@@ -41,6 +41,7 @@ class Managemen_suratmasuk extends CI_Controller
         $jam_input = date("H:i:s");
         $tgl_input = date("Y-m-d");
 
+        $id_surat           = $this->uuid->v4();
         $no_agenda          = $this->input->post('no_agenda');
         $kode               = $this->input->post('kode');
         $no_surat           = $this->input->post('no_surat');
@@ -67,10 +68,11 @@ class Managemen_suratmasuk extends CI_Controller
                 redirect('managemen_suratmasuk');
             } else {
                 $gambar = $this->upload->data('file_name');
-                $this->session->set_flashdata('gagal', 'Simpan');
+                $this->session->set_flashdata('flash', 'Simpan');
             }
         }
         $data = array(
+            'id_surat'   => $id_surat,
             'no_agenda'   => $no_agenda,
             'no_surat' => $no_surat,
             'asal_surat'   => $asal_surat,

@@ -19,6 +19,7 @@ class Managemen_suratkeluar extends CI_Controller
         $data['kode']                       = $this->Model_managemensuratkeluar->kode();
         $data['surat_keluar_ok']            = $this->Model_managemensuratkeluar->tampil_data_all()->result();
         $data['pembuat_surat']              = $this->Model_managemensuratmasuk->TampilPembuat();
+        $data['j_det_srt_keluar']          = $this->Model_managemensuratkeluar->hitung_j_deteksi_fisik();
 
         $this->load->view('templates/header', $title);
         $this->load->view('panel/surat_keluar', $data);
@@ -31,6 +32,7 @@ class Managemen_suratkeluar extends CI_Controller
         $jam_input = date("H:i:s");
         $tgl_input = date("Y-m-d");
 
+        $id_surat          = $this->uuid->v4();
         $no_agenda          = $this->input->post('no_agenda');
         $tujuan           = $this->input->post('tujuan');
         $no_surat           = $this->input->post('no_surat');
@@ -44,6 +46,7 @@ class Managemen_suratkeluar extends CI_Controller
         $id_tahuns               = $this->input->post('id_tahun');
 
         $data = array(
+            'id_surat'   => $id_surat,
             'no_agenda'   => $no_agenda,
             'tujuan'   => $tujuan,
             'no_surat' => $no_surat,
