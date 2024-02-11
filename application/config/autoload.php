@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('Model_dashboard', 'Model_managemen_kode', 'Model_managemen_bidang', 'Model_managemen_user', 'Mlogin', 'Model_managemensuratmasuk', 'Model_managemen_disposisi', 'Model_managemensuratkeluar', 'Model_managemen_pegawai', 'Model_v_dashboard');
+$autoload['model'] = array('Model_rekap_suratkeluar', 'Model_rekap_suratmasuk', 'Model_dashboard', 'Model_managemen_kode', 'Model_managemen_bidang', 'Model_managemen_user', 'Mlogin', 'Model_managemensuratmasuk', 'Model_managemen_disposisi', 'Model_managemensuratkeluar', 'Model_managemen_pegawai', 'Model_v_dashboard');
