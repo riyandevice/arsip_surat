@@ -266,9 +266,9 @@
                         </li>
                         <li class="nav-header">Rekap Agenda</li>
                         <li class="nav-item">
-                            <a href="" class="nav-link <?php if ($this->uri->segment('1') == 'agenda_masuk') {
-                                                            echo 'active';
-                                                        } ?>">
+                            <a href="<?php echo base_url(); ?>managemen_rekap_suratmasuk" class="nav-link <?php if ($this->uri->segment('1') == 'managemen_rekap_suratmasuk') {
+                                                                                                                echo 'active';
+                                                                                                            } ?>">
                                 <i class="nav-icon fas fa-chevron-circle-right"></i>
                                 <p>
                                     Agenda Surat Masuk
@@ -276,12 +276,23 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link <?php if ($this->uri->segment('1') == 'agenda_keluar') {
-                                                            echo 'active';
-                                                        } ?>">
+                            <a href="<?php echo base_url(); ?>managemen_rekap_suratkeluar" class="nav-link <?php if ($this->uri->segment('1') == 'agenda_keluar') {
+                                                                                                                echo 'active';
+                                                                                                            } ?>">
                                 <i class="nav-icon fas fa-chevron-circle-right"></i>
                                 <p>
-                                    Agenda Surat Masuk
+                                    Agenda Surat Keluar
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-header">Chengelog</li>
+                        <li class="nav-item">
+                            <a href="<?php echo base_url(); ?>managemen_changelog" class="nav-link <?php if ($this->uri->segment('1') == 'versi_apel') {
+                                                                                                        echo 'active';
+                                                                                                    } ?>">
+                                <i class="nav-icon fas fa-tree"></i>
+                                <p>
+                                    Versi Apel
                                 </p>
                             </a>
                         </li>
