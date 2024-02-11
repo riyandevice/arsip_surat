@@ -118,12 +118,12 @@
                         <tr>
                             <td>Batas waktu</td>
                             <td>:</td>
-                            <td>Bang Johnes</td>
+                            <td>...............................</td>
                         </tr>
                         <tr>
                             <td>Sifat Disposisi</td>
                             <td>:</td>
-                            <td>Bang Johnes</td>
+                            <td>...............................</td>
                         </tr>
                         <tr>
                             <td>Catatan</td>
